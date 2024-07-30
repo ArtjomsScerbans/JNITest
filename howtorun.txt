@@ -1,0 +1,9 @@
+1. Set JAVA_HOME on line 15 in the top level CMakeLists.txt
+
+2. Run:
+
+mkdir build
+cd build
+cmake ..
+cmake --build .
+java -classpath HelloJNI.jar -Djava.library.path=JNIFunctions HelloJNI
