@@ -1,5 +1,5 @@
 # declare the library
-add_library(JNIFunctions SHARED JNIFunctions.cpp)
+add_library(JNIFunctions SHARED JNIFunctions.cpp NativeFunctions.cpp)
 
 target_include_directories(JNIFunctions PUBLIC ${JNI_INCLUDE_DIRS})
 
