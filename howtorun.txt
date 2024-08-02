@@ -6,4 +6,4 @@ mkdir build
 cd build
 cmake ..
 cmake --build .
-java -classpath HelloJNI.jar -Djava.library.path=JNIFunctions HelloJNI
+java -classpath HelloJNI.jar -Djava.library.path=resources/x86_64 TopLevelClass
