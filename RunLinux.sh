@@ -1,0 +1,1 @@
+java -classpath build/jar/HelloJNI.jar -Djava.library.path=build/lib/x86_64/Linux TopLevelClass

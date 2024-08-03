@@ -3,9 +3,6 @@ cmake_minimum_required(VERSION 3.15)
 # set the project name and version
 project(HelloJNI VERSION 1.0)
 
-# set JAVA_HOME directory
-set(JAVA_HOME "/usr/lib/jvm/java-11-openjdk-amd64")
-
 # Add Java support
 find_package(Java REQUIRED)
 find_package(JNI)
@@ -23,7 +20,11 @@ target_compile_options(tutorial_compiler_flags INTERFACE
   "$<${msvc_cxx}:$<BUILD_INTERFACE:-W3>>"
 )
 
-add_jar(HelloJNI HelloJNI.java TopLevelClass.java ENTRY_POINT TopLevelClass.java GENERATE_NATIVE_HEADERS HelloJNI-native)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib/x86_64/${CMAKE_SYSTEM_NAME})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib/x86_64/${CMAKE_SYSTEM_NAME})
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib/x86_64/${CMAKE_SYSTEM_NAME})
+
+add_jar(HelloJNI HelloJNI.java TopLevelClass.java ENTRY_POINT TopLevelClass.java GENERATE_NATIVE_HEADERS HelloJNI-native OUTPUT_DIR ${PROJECT_BINARY_DIR}/jar)
 
 # add the JNIFunctions library
 add_subdirectory(JNIFunctions)
